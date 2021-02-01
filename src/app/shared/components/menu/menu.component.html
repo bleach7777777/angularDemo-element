@@ -1,0 +1,8 @@
+<div class="menu">
+    <ul class="menu-box">
+        <li class="menu-box-item" *ngFor="let item of menuList" [class.selected-item]="active === item.code">
+            <i [class]="item.icon"></i>
+            <span>{{item.name}}</span>
+        </li>
+    </ul>
+</div>

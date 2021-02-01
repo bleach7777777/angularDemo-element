@@ -1,0 +1,81 @@
+@import '../../../../assets/scss/shared.scss';
+.bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($color: black, $alpha: 0.3);
+    z-index: 9999;
+}
+
+.bullet {
+    position: absolute;
+    bottom: 0;
+    transform: translate(-8px, 100%);
+    display: flex;
+    width: 375px;
+    background-color: $fff;
+    z-index: 10000;
+    // 排序和分类样式
+    &-box {
+        flex-grow: 1;
+        height: 520px;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        &-item {
+            padding: 16px;
+            color: black;
+            .icon-seleted {
+                float: right;
+            }
+        }
+        .selected-item {
+            color: blue;
+        }
+    }
+    .second-bullet-box {
+        flex-grow: 2;
+    }
+}
+
+.other-bullet {
+    flex-direction: column;
+    // 速度和筛选样式
+    .other-bullet-box {
+        padding: 8px 16px;
+        .title {}
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            &-item {
+                flex-shrink: 0;
+                width: 98px;
+                padding: 8px 4px;
+                margin: 8px 4px;
+                background-color: $bg-grey;
+                border-radius: 8px;
+                text-align: center;
+            }
+            &-selected {
+                color: blue;
+                background-color: rgba($color: blue, $alpha: 0.3);
+            }
+        }
+    }
+    .button-box {
+        display: flex;
+        border: 1px solid $bg-grey;
+        background-color: $fff;
+        &-item {
+            flex-basis: 50%;
+            padding: 16px 0;
+            &:nth-child(2) {
+                background-color: $bg-blue;
+                color: $fff;
+            }
+        }
+    }
+}

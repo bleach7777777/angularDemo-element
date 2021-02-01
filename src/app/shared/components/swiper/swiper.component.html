@@ -1,0 +1,8 @@
+<div class="show-container" [style.height]="showContainerHeight">
+    <div class="content-container" #contentBox [class.content-container-transition]="isTransition" (touchstart)="touchStart($event)" (touchmove)="touchMove($event)" (touchend)="touchEnd($event)">
+        <ng-content select=".content"></ng-content>
+    </div>
+</div>
+<div class="button-container">
+    <div class="button-item" *ngFor="let item of contentList; let i = index" [class.selected-item]="autoPlay ? (i === currContentIndex - 1) : (i === currContentIndex)"></div>
+</div>

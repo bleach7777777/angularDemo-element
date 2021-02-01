@@ -1,0 +1,26 @@
+@import '../../../../assets/scss/shared.scss';
+.menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid rgb(197, 196, 196);
+    .menu-box {
+        display: flex;
+        justify-content: space-around;
+        padding: 4px 0;
+        background-color: $bg-grey;
+        color: $text-grey;
+        z-index: 999;
+        &-item {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            .iconfont {
+                font-size: 34px;
+            }
+        }
+        .selected-item {
+            color: blue;
+        }
+    }
+}

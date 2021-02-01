@@ -1,0 +1,5 @@
+<div class="tab-show-container">
+    <ul class="tab-box">
+        <li class="tab-item" [class.selected-item]="currTab === i" *ngFor="let item of tabList; let i = index" (click)="changeTab(item, i)">{{item.name}}</li>
+    </ul>
+</div>

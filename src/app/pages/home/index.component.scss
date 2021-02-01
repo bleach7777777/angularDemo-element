@@ -1,0 +1,142 @@
+@import '../../../assets//scss/shared.scss';
+// 工具栏
+.util-tab {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    color: $fff;
+    background-color: $bg-blue;
+    .location {
+        font-size: 15px;
+        .icon-map {
+            font-size: 30px;
+        }
+    }
+    .other {
+        .icon-scanning {
+            font-size: 30px;
+            margin-right: 16px;
+        }
+        .icon-comments {
+            font-size: 30px;
+        }
+    }
+}
+
+// 搜索
+.search-box {
+    position: relative;
+    display: flex;
+    margin: 8px 16px;
+    .icon-search {
+        position: absolute;
+        left: 16px;
+        top: 8px;
+        bottom: 8px;
+    }
+    .input {
+        flex: 1;
+        padding: 8px 0 8px 8px;
+        border: 1px solid $bg-grey;
+        ;
+        border-radius: 15px;
+        &::-webkit-input-placeholder {
+            padding-left: 32px;
+        }
+    }
+    .button {
+        position: absolute;
+        right: 3px;
+        top: 3px;
+        bottom: 3px;
+        padding: 0 8px;
+        border: 1px solid $bg-blue;
+        border-radius: 15px;
+        color: white;
+        background-color: $bg-blue;
+        z-index: 99;
+    }
+}
+
+.search-tag {
+    margin: 8px 16px;
+    .tag {
+        padding: 3px 6px;
+        margin: 0 3px;
+        font-size: 10px;
+        border: 1px solid $bg-grey;
+        border-radius: 12px;
+        background-color: $bg-grey;
+    }
+}
+
+// 广告轮播图
+.ad {
+    float: left;
+    width: 343px;
+    height: 64px;
+    margin: 8px 16px;
+    border-radius: 10px;
+}
+
+// 商家分类菜单
+.store-tab {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 358px;
+    height: 258px;
+    padding: 0 8px;
+    &-item {
+        display: flex;
+        flex-direction: column;
+        padding: 8px 8px;
+        .img {
+            width: 54px;
+            height: 54px;
+        }
+        .name {
+            text-align: center;
+        }
+    }
+}
+
+// 商家列表
+.store-list {
+    background-color: $bg-grey;
+    padding-bottom: 70px;
+    .second-list-tab {
+        position: relative;
+        padding: 8px 16px 8px 8px;
+        background-color: $fff;
+        font-size: 15px;
+        &::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .left {
+            float: left;
+            margin: 0 8px;
+        }
+        .right {
+            float: right;
+        }
+    }
+    .third-list-tab {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 16px;
+        font-size: 13px;
+        .third-tab-item {
+            padding: 4px 8px;
+            border: 1px solid $fff;
+            border-radius: 4px;
+            background-color: $fff;
+        }
+    }
+    .list {
+        padding: 0 16px;
+    }
+}

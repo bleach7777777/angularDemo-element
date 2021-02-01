@@ -1,0 +1,98 @@
+@import '../../../../assets/scss/shared.scss';
+.store {
+    display: flex;
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: $fff;
+    border-radius: 10px;
+    &-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+    }
+    &-content {
+        flex: 1;
+        margin-left: 8px;
+        &-one {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        &-two {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            color: $text-grey;
+            .left {
+                .rate {
+                    color: orange;
+                    margin-right: 4px;
+                }
+            }
+            .right {
+                .reach-time {
+                    margin-right: 4px;
+                }
+            }
+        }
+        &-three {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            color: $text-grey;
+            .left {
+                .lowest-carry-price {
+                    margin-right: 4px;
+                }
+            }
+            .right {
+                .deliver-way {
+                    display: block;
+                    padding: 2px 4px;
+                    color: blue;
+                    border: 1px solid blue;
+                    border-radius: 2px;
+                    font-size: 10px;
+                }
+            }
+        }
+        &-four {
+            // margin-bottom: 4x;
+            .ad {
+                display: block;
+                width: 160px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: 4px 8px;
+                color: orange;
+                background-color: rgba($color: orange, $alpha: 0.3);
+                border-radius: 4px;
+            }
+        }
+        &-other {
+            margin-top: 4px;
+            .no-spread {
+                display: flex;
+                justify-content: space-between;
+                .left {
+                    display: flex;
+                    width: 160px;
+                    overflow: hidden;
+                    &-item {
+                        flex-shrink: 0;
+                        display: block;
+                        padding: 2px 4px;
+                        margin-right: 4px;
+                        color: red;
+                        border: 1px solid red;
+                        border-radius: 4px;
+                    }
+                }
+                .right {}
+            }
+        }
+    }
+}

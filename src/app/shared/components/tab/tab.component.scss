@@ -1,0 +1,31 @@
+@import '../../../../assets/scss/shared.scss';
+.tab-show-container {
+    padding: 16px 8px 0 8px;
+    overflow: hidden;
+    .tab-box {
+        display: flex;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .tab-item {
+            flex-shrink: 0;
+            padding: 0 8px;
+            font-size: 18px;
+        }
+        .selected-item {
+            position: relative;
+            height: 30px;
+            &::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, 0);
+                bottom: 0;
+                width: 30px;
+                height: 4px;
+                background-color: blue;
+            }
+        }
+    }
+}

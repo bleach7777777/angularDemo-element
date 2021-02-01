@@ -1,0 +1,27 @@
+@import '../../../../assets/scss/shared.scss';
+.show-container {
+    width: 375px;
+    overflow: hidden;
+    .content-container {
+        display: flex;
+    }
+    .content-container-transition {
+        transition: margin-left 1s;
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    .button-item {
+        width: 6px;
+        height: 6px;
+        margin: 0 3px;
+        background-color: $bg-grey;
+        border-radius: 3px;
+    }
+    .selected-item {
+        background-color: blue;
+    }
+}

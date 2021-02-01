@@ -1,0 +1,83 @@
+<!-- 工具栏 -->
+<div class="util-tab">
+    <div class="location" (click)="unDevelop()">
+        <i class="iconfont icon-map"></i>
+        <span>定位</span>
+    </div>
+    <div class="other">
+        <i class="iconfont icon-scanning" (click)="unDevelop()"></i>
+        <i class="iconfont icon-comments" (click)="unDevelop()"></i>
+    </div>
+</div>
+<!-- 搜索 -->
+<div class="search-box" (click)="toSearch()">
+    <i class="iconfont icon-search"></i>
+    <input class="input" type="text" disabled [placeholder]='searchTip'>
+    <button class="button">搜索</button>
+</div>
+<div class="search-tag">
+    <label class="tag" *ngFor="let item of searchTagList" (click)="toSearch(item)">{{item}}</label>
+</div>
+<!-- 广告轮播 -->
+<app-swiper [showContainerHeight]="'80px'" [contentList]="ads" [autoPlay]="true" [filterList]="filterAds">
+    <img class="content ad" *ngFor="let item of filterAds; let i = index" [src]="item.img" alt="广告" (click)="adToLink(item.link)">
+</app-swiper>
+<!-- 商家分类菜单 -->
+<app-swiper [showContainerHeight]="'258px'" [contentList]="filterStoreTabList" [filterList]="filterStoreTabList">
+    <ul class="content store-tab" *ngFor="let tempList of filterStoreTabList; let i = index">
+        <li class="store-tab-item" *ngFor="let item of tempList; let i = index" (click)="toStoreList()">
+            <img class="img" [src]="item.img" alt="图标">
+            <span class="name">{{item.name}}</span>
+        </li>
+    </ul>
+</app-swiper>
+<!-- 商家列表 -->
+<div class="store-list">
+    <app-tab [tabList]="listTab" (clickTab)="clickTab($event)"></app-tab>
+    <app-loading *ngIf="loading; else listEle"></app-loading>
+    <ng-template #listEle>
+        <ul class="second-list-tab" *ngIf="currListTab === '1'">
+            <!-- 排序 -->
+            <li class="left" [style.color]="isClickFirstSort ? 'blue' : 'black'" (click)="openListTab(1)">
+                <span>{{sortFirstList[currFirstSortTab].name}}</span>
+                <i class="iconfont icon-arrow-down"></i>
+            </li>
+            <!-- 分类 -->
+            <li class="left" [style.color]="isClickSecondSort ? 'blue' : 'black'" (click)="openListTab(2)">
+                <span *ngIf="currSecondSortTab1 === 0 || (currSecondSortTab1 !== 0 && currSecondSortTab2 === 0)">{{sortSecondList[currSecondSortTab1].name}}</span>
+                <span *ngIf="currSecondSortTab1 !== 0 && currSecondSortTab2 !== 0">{{sortSecondList[currSecondSortTab1]['list'][currSecondSortTab2].name}}</span>
+                <i class="iconfont icon-arrow-down"></i>
+            </li>
+            <!-- 速度 -->
+            <li class="left" (click)="openListTab(3)">
+                <span [style.color]="isClickThirdSort ? 'blue' : 'black'">速度</span>
+                <i class="iconfont icon-arrow-down"></i>
+            </li>
+            <!-- 筛选 -->
+            <li class="right" [style.color]="isClickFourSort ? 'blue' : 'black'" (click)="openListTab(4)">
+                <span>筛选</span>
+                <i class="iconfont icon-filter"></i>
+            </li>
+            <!-- 弹框 -->
+            <app-bullet #sortBullet [param]="sortParam" (click)="clickBullet($event)"></app-bullet>
+            <!-- 排序弹框 -->
+            <!-- <app-bullet #sortFirstBullet [list]="sortFirstList" [currFirstIndex]="currFirstSortTab" (clickBullet)="clickBullet($event)"></app-bullet> -->
+            <!-- 分类弹框 -->
+            <!-- <app-bullet #sortSecondBullet [isSecond]="true" [list]="sortSecondList" [currFirstIndex]="currSecondSortTab1" [currSecondIndex]="currSecondSortTab2" (clickBullet)="clickBullet($event)"></app-bullet> -->
+            <!-- 速度弹框 -->
+            <!-- <app-bullet #sortThirdBullet [type]="2" [otherList]="sortThirdList" [currOtherIndex]="currThirdSortTab" (clickBullet)="clickOther($event)"></app-bullet> -->
+            <!-- 筛选弹框 -->
+            <!-- <app-bullet #sortFourBullet [type]="2" [otherList]="sortFourList" [currOtherIndex]="currFourSortTab" (clickBullet)="clickOther($event)"></app-bullet> -->
+        </ul>
+        <div class="third-list-tab" *ngIf="currListTab === '1'">
+            <label class="third-tab-item" *ngFor="let item of thirdListTab; let i = index">{{item.name}}</label>
+        </div>
+        <div class="list">
+            <ng-container *ngFor="let item of storeList">
+                <app-store [store]="item"></app-store>
+            </ng-container>
+        </div>
+    </ng-template>
+</div>
+<!-- 置底菜单栏 -->
+<app-menu [active]="'takeOut'"></app-menu>

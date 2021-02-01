@@ -1,0 +1,29 @@
+<!-- <div class="bg"></div> -->
+<!-- 排序/分类 -->
+<div class="bullet" *ngIf="type === 1">
+    <ul class="bullet-box">
+        <li class="bullet-box-item" *ngFor="let item of list; let i = index" [class.selected-item]="currFirstIndex === i" (click)="clickFirst(item, i);$event.stopPropagation()">
+            <span>{{item.name}}</span>
+            <i class="iconfont icon-seleted" *ngIf="!isSecond && currFirstIndex === i"></i>
+        </li>
+    </ul>
+    <ul class="bullet-box second-bullet-box" *ngIf="isSecond">
+        <li class="bullet-box-item" *ngFor="let item of list[currFirstIndex].list; let j = index" [class.selected-item]="currSecondIndex === j" (click)="clickSecond(item, j);$event.stopPropagation()">
+            <span>{{item.name}}</span>
+            <i class="iconfont icon-seleted" *ngIf="currSecondIndex === j"></i>
+        </li>
+    </ul>
+</div>
+<!-- 速度/筛选 -->
+<div class="bullet other-bullet" *ngIf="type === 2">
+    <ul class="other-bullet-box" *ngFor="let item of otherList; let i = index">
+        <li class="title">{{item.title}}</li>
+        <ul class="list">
+            <li class="list-item" *ngFor="let ele of item.list;let j = index" [class.list-selected]="currOtherIndex[i] === j" (click)="clickOther(ele, i, j);$event.stopPropagation()">{{ele.name}}</li>
+        </ul>
+    </ul>
+    <div class="button-box">
+        <button class="button-box-item" [disabled]="isClear" (click)="clearOther()">清空</button>
+        <button class="button-box-item" (click)="clickOtherEmit()">筛选</button>
+    </div>
+</div>

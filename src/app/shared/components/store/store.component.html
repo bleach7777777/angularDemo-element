@@ -1,0 +1,41 @@
+<div class="store">
+    <img class="store-img" [src]="store.img" alt="商家图标">
+    <div class="store-content">
+        <div class="store-content-one">
+            <span>{{store.name}}</span>
+            <i class="iconfont icon-ellipsis"></i>
+        </div>
+        <div class="store-content-two">
+            <div class="left">
+                <span class="rate">{{store.rate}}分</span>
+                <span class="sale">月售{{store.sales}}</span>
+            </div>
+            <div class="right">
+                <span class="reach-time">{{store.reachTime}}分钟</span>
+                <span class="distance">{{store.distance}}</span>
+            </div>
+        </div>
+        <div class="store-content-three">
+            <div class="left">
+                <span class="lowest-carry-price">起送￥{{store.lowestCarryPrice}}</span>
+                <span class="deliver-fee">配送￥{{store.deliverFee}}</span>
+            </div>
+            <div class="right">
+                <label class="deliver-way" *ngIf="store.deliverWay">{{store.deliverWay}}</label>
+            </div>
+        </div>
+        <div class="store-content-four">
+            <label class="ad">“{{store.ad}}”</label>
+        </div>
+        <div class="store-content-other">
+            <div class="no-spread">
+                <div class="left">
+                    <label class="left-item" *ngFor="let item of otherList">{{item}}</label>
+                </div>
+                <div class="right">
+                    <i class="iconfont icon-arrow-down"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
